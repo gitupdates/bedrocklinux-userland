@@ -29,7 +29,7 @@ import() {
 	*.tar.gz) step "Decompressing" ; gunzip < "${src}" > "${tarball}" ;;
 	*.tar.bz2) step "Decompressing" ; bzip2 -d < "${src}" > "${tarball}" ;;
 	*.tar.xz) step "Decompressing" ; unxz < "${src}" > "${tarball}" ;;
-	*.tar.zst | *.tar.zstd) step "Decompressing" ; zstd -d < "${src}" > "${tarball}" ;;
+	*.tar.zst | *.tar.zstd) step "Decompressing" ; /bedrock/libexec/zstd -d < "${src}" > "${tarball}" ;;
 	*) import_abort "Unrecognized tarball format"
 	esac
 
